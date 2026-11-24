@@ -1,0 +1,14 @@
+{
+  "name": "sendora-ai-systems",
+  "private": true,
+  "version": "1.2.1",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "packageManager": "pnpm@12.21.0",
+  "scripts": {
+    "test:ui": "pnpm --filter @sendora/ui-kit test",
+    "typecheck": "pnpm -r typecheck",
+    "build:demo": "pnpm --filter demo build",
+    "shots": "pnpm --filter demo shots"
+  }
+}
