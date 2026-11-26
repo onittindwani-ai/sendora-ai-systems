@@ -62,7 +62,7 @@ function Inner() {
             <div className="sx-row" style={{ justifyContent: "space-between" }}>
               <div>
                 <h1 className="sx-serif" style={{ fontSize: "var(--sx-text-h1)" }}>Good morning</h1>
-                <p className="sx-muted sx-measure" style={{ margin: "8px 0 0" }}>Example data, all fictional. This page proves the shared kit renders.</p>
+                <p className="sx-muted sx-measure" style={{ margin: "8px 0 0" }}>Sample data only. This page proves the shared kit renders.</p>
               </div>
               <DateRange value={range} onChange={setRange} />
             </div>

@@ -12,7 +12,7 @@ Every outside fact used in this repo, with where it came from and whether it was
 | motion, recharts, cmdk, sonner, dnd-kit core, Radix dialog, tabs, tooltip, lucide-react | see packages/ui-kit/package.json | npm registry | VERIFIED that they install and pass the tests |
 | FastAPI 0.165, Pydantic 2.14, SQLAlchemy 2.1, httpx 0.28, argon2-cffi 25.1 | see packages/core-py/pyproject.toml | https://pypi.org | Ranges in pyproject are minimums; tests ran on Python 3.12 |
 | Model prices in `costs.py` | Sonnet 5.5 2 and 10 USD per million tokens, Haiku 5.5 "from" 0.10 and 0.50 | https://platform.claude.com/docs/en/about-claude/models/overview (read 2026-11-23) | VERIFIED that the page says this on that day; the Haiku figure is a lower bound, so set exact prices for your account |
-| Live Anthropic backend in `llm_anthropic.py` | not run against the real API | see the next section | UNVERIFIED live. Request shape checked against the docs and a local fake server only |
+| Live Anthropic backend in `llm_anthropic.py` | not run against the real API | see the next section | UNVERIFIED live. Request shape checked against the docs and a local mock server only |
 
 ## Anthropic Messages API (docs read 2026-11-23)
 
@@ -33,12 +33,12 @@ Pages read: https://platform.claude.com/docs/en/api/messages, /api/errors, /api/
 | Success body: `content` array of blocks (text blocks carry the answer, thinking blocks are skipped), `usage.input_tokens` and `usage.output_tokens`, `stop_reason` (`end_turn`, `stop_sequence` documented; `max_tokens` and `refusal` assumed) | api/messages (examples only) | UNVERIFIED in part: the field names `usage.*` and `content[].type` come from the SDK convention, not from a page excerpt I could read in full |
 | Thinking tokens may count toward `max_tokens`, so the default `LLM_MAX_TOKENS` is 4096 | not found in the pages read | UNVERIFIED (a safety margin, not a fact) |
 | Whether `LLM_THINKING=off` saves money or time on a given model | not measured | UNVERIFIED |
-| Everything above run against the real API with a real key | not done | UNVERIFIED. Tests use a local fake server written with the standard library (`packages/core-py/tests/fake_anthropic.py`) and recorded fixtures |
+| Everything above run against the real API with a real key | not done | UNVERIFIED. Tests use a local mock server written with the standard library (`packages/core-py/tests/stub_anthropic.py`) and recorded fixtures |
 
 ## Tests that were run on the base (2026-11-23, base 1.2.0)
 
 - tools: 15 unit tests passed.
-- core-py: 56 tests passed, 99 percent line coverage (934 statements, 14 not covered). The model path is tested against a local fake of the Anthropic endpoint (standard library server) that asserts the request path, headers and JSON body, plus recorded fixtures. No call to the real API was made.
+- core-py: 56 tests passed, 99 percent line coverage (934 statements, 14 not covered). The model path is tested against a local mock of the Anthropic endpoint (standard library server) that asserts the request path, headers and JSON body, plus recorded fixtures. No call to the real API was made.
 - ui-kit: 62 tests passed (91 percent of statements, 95 percent of lines), plus a contrast test with 20 checks. `tsc --noEmit` passes for ui-kit and the demo.
 - demo app: `next build` succeeded, 14 Playwright checks passed in desktop Chrome (installed Google Chrome, no browser download): screenshots at 1440x900 and 390x844, axe with no serious or critical findings on four pages (Pipeline now has a link inside each card) and in the dark theme, a keyboard path, Kanban cards that are not buttons and open from the keyboard, Kanban keyboard lift and drop, reduced motion, 5,000 rows, a Kanban drag, and no layout shift on load.
 - Not run: Safari and Firefox, a screen reader, real phones, production hosting, the real Anthropic API.

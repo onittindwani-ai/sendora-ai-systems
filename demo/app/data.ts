@@ -1,4 +1,4 @@
-// Fictional example data. Not real people or companies.
+// Sample data only. Not real people or companies.
 export interface Lead {
   id: string;
   name: string;
@@ -11,7 +11,7 @@ export interface Lead {
 
 const first = ["Ada", "Ravi", "Mei", "Tomas", "Lena", "Omar", "Priya", "Jonas", "Sara", "Kofi", "Noor", "Elif"];
 const last = ["Hart", "Iyer", "Lindqvist", "Okoro", "Duarte", "Nakamura", "Costa", "Weber", "Haddad", "Moreau"];
-const company = ["Northwind Test Co", "Bluebird Demo Ltd", "Harbor Example LLC", "Pine Street Sample", "Quill Fictional Inc"];
+const company = ["Northwind Test Co", "Bluebird Demo Ltd", "Harbor Example LLC", "Pine Street Sample", "Quill Sample Inc"];
 const stages: Lead["stage"][] = ["new", "contacted", "replied", "meeting", "won"];
 
 export function makeLeads(n: number): Lead[] {

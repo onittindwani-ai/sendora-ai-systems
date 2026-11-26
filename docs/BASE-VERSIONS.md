@@ -17,18 +17,19 @@ The base (`packages/core-py`, `packages/ui-kit`, `packages/ARCHITECTURE.md` and 
 | 1.2.5 | `base-v1.2.5` | A real session secret is required whenever an owner password is set, also in demo mode; `/health` answers only ok; the audit chain is verified in batches |
 | 1.2.6 | `base-v1.2.6` | A model missing from the price table is priced at the highest known price (a spend budget still trips); the model address check compares the host, not a text prefix |
 | 1.2.7 | `base-v1.2.7` | `/ready` no longer names the cause of a failure (it goes to the log); SQLite waits up to 30 seconds for a write lock |
+| 1.2.8 | `base-v1.2.8` | Documentation and demo label updates |
 
 ## What each system carries
 
 | System | Folder while unpublished | Base version | Copy check |
 | --- | --- | --- | --- |
-| Pipecairn | `pipecairn` | 1.2.7 | OK |
-| Ringlark | `ringlark` | 1.2.7 | OK |
-| Booklantern | `booklantern` | 1.2.7 | OK |
-| Deskfern | `deskfern` | 1.2.7 | OK |
-| Lorefern | `lorefern` | 1.2.7 | OK |
-| Penlark | `penlark` | 1.2.7 | OK |
-| Slatehire | `slatehire` | 1.2.7 | OK |
+| Pipecairn | `pipecairn` | 1.2.8 | OK |
+| Ringlark | `ringlark` | 1.2.8 | OK |
+| Booklantern | `booklantern` | 1.2.8 | OK |
+| Deskfern | `deskfern` | 1.2.8 | OK |
+| Lorefern | `lorefern` | 1.2.8 | OK |
+| Penlark | `penlark` | 1.2.8 | OK |
+| Slatehire | `slatehire` | 1.2.8 | OK |
 
 Checked on 2026-11-25 with `python3 tools/check_base_copies.py <each system folder>`.
 

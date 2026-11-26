@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.8 (base)
+
+- Documentation and demo label updates.
+
 ## 1.2.7 (base)
 
 - core-py: `/ready` answers only `{"status": "not_ready"}` on a failure and writes the cause to the log. SQLite connections wait up to 30 seconds for a write lock (the default 5 seconds turned two busy writers into `database is locked` in CI and on small servers).

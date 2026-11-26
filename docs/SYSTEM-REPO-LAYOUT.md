@@ -9,7 +9,7 @@ Every system repo has this shape, so a developer who knows one knows all of them
   apps/web      Next.js dashboard, built from the shared UI kit
   apps/api      FastAPI app (built with create_base_app) and the worker entry
   packages/     exact copy of the hub base, never edited here (core-py, ui-kit, ARCHITECTURE.md, BASE_MANIFEST.json)
-  mock/         fake vendor servers written from public docs
+  mock/         local mock vendor servers written from public docs
   data/         seed data and answer_key.json
   tools/        seed, scoring, doctor, check_env, check_base_copies
   docs/         numbered guides 00 to 15 and the reference docs

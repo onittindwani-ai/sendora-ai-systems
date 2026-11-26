@@ -18,7 +18,7 @@ FREEZE = "\n".join([
 ])
 
 
-def fake_repo() -> Path:
+def stub_repo() -> Path:
     root = Path(tempfile.mkdtemp()) / "booklantern"
     (root / ".venv" / "bin").mkdir(parents=True)
     (root / ".venv" / "bin" / "python").write_text("")
@@ -32,10 +32,10 @@ def run_with(freeze: str):
 class MakeConstraints(unittest.TestCase):
     def test_own_and_editable_packages_are_left_out_and_the_rest_is_sorted(self):
         with run_with(FREEZE):
-            self.assertEqual(mk.frozen(fake_repo()), ["alpha==1.0", "pydantic-core==2.5", "Zeta==2.0"])
+            self.assertEqual(mk.frozen(stub_repo()), ["alpha==1.0", "pydantic-core==2.5", "Zeta==2.0"])
 
     def test_check_mode_notices_a_stale_file_and_writes_nothing(self):
-        repo = fake_repo()
+        repo = stub_repo()
         with run_with(FREEZE):
             self.assertEqual(mk.main([str(repo), "--check"]), 1)
             self.assertFalse((repo / "constraints.txt").exists())

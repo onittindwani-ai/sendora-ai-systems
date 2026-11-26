@@ -2,12 +2,12 @@
 
 Seven free, MIT licensed AI systems a business can run, plus the shared base they are built on. Each system is its own repo. This hub holds the start here guide, the shared base, and the way the tools are compared.
 
-Status: the shared base (version 1.2.0) and all seven systems are built and tested locally. None of the repos is published yet. Nothing here has been run against live vendor accounts.
+Status: the shared base (version 1.2.8) and all seven systems are built and tested locally. None of the repos is published yet. Nothing here has been run against live vendor accounts.
 
 ## Start here
 
 1. Read `docs/00-BUSINESS-BASICS.md`: company and EIN, domain and DNS, website, mailboxes, and texting registration. This is what most people skip and what makes the systems work in real life.
-2. Pick a system from the table below. Each one runs with made up data and no accounts in about five minutes.
+2. Pick a system from the table below. Each one runs with sample data and no accounts in about five minutes.
 3. Read `docs/TOOLS-SCOREBOARD.md` for every tool the systems name, scored, with the open source alternative where one is close, and `docs/COMPARISON-METHOD.md` for how the scores are made.
 
 ## The seven systems (names from a public search, not a legal clearance)
