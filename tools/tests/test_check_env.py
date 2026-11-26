@@ -10,7 +10,7 @@ DATABASE_URL=sqlite:///./x.db
 SESSION_SECRET=change-me
 DEMO_MODE=true
 
-# Email (smtp_imap)
+# Email (smtp_imap): all or none
 SMTP_HOST=
 SMTP_PORT=587
 SMTP_PASSWORD=

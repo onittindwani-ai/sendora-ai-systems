@@ -10,20 +10,27 @@ The base (`packages/core-py`, `packages/ui-kit`, `packages/ARCHITECTURE.md` and 
 | 1.1.0 | `base-v1.1.0` | Search button name, card heading level, key glyphs on phones, overlay settle time, `check_env.py` |
 | 1.1.1 | `base-v1.1.1` | Solid background for dialogs and sheets |
 | 1.2.0 | `base-v1.2.0` | Viewer role, approvals refuse the requester, Kanban cards can hold buttons, Anthropic model path |
+| 1.2.1 | `base-v1.2.1` | Count up steps follow the precision of their target |
+| 1.2.2 | `base-v1.2.2` | Safe start (refuses an example session secret or a demo on a server database), request size limit, bounded rate limiter, atomic approvals, lost jobs retried, recorded answers independent of column spacing, login helpers |
+| 1.2.3 | `base-v1.2.3` | An empty line in .env (as in .env.example) means not set, so a number setting no longer crashes the start |
+| 1.2.4 | `base-v1.2.4` | A database error no longer prints the values of the failed statement; a job that fails on a database error records its failure |
+| 1.2.5 | `base-v1.2.5` | A real session secret is required whenever an owner password is set, also in demo mode; `/health` answers only ok; the audit chain is verified in batches |
+| 1.2.6 | `base-v1.2.6` | A model missing from the price table is priced at the highest known price (a spend budget still trips); the model address check compares the host, not a text prefix |
+| 1.2.7 | `base-v1.2.7` | `/ready` no longer names the cause of a failure (it goes to the log); SQLite waits up to 30 seconds for a write lock |
 
 ## What each system carries
 
 | System | Folder while unpublished | Base version | Copy check |
 | --- | --- | --- | --- |
-| Pipecairn | `pipecairn` | 1.2.0 | OK |
-| Ringlark | `ringlark` | 1.2.0 | OK |
-| Booklantern | `booklantern` | 1.2.0 | OK |
-| Deskfern | `deskfern` | 1.2.0 | OK |
-| Lorefern | `lorefern` | 1.2.0 | OK |
-| Penlark | `penlark` | 1.2.0 | OK |
-| Slatehire | `slatehire` | 1.2.0 | OK |
+| Pipecairn | `pipecairn` | 1.2.7 | OK |
+| Ringlark | `ringlark` | 1.2.7 | OK |
+| Booklantern | `booklantern` | 1.2.7 | OK |
+| Deskfern | `deskfern` | 1.2.7 | OK |
+| Lorefern | `lorefern` | 1.2.7 | OK |
+| Penlark | `penlark` | 1.2.7 | OK |
+| Slatehire | `slatehire` | 1.2.7 | OK |
 
-Checked on 2026-11-23 with `python3 tools/check_base_copies.py <each system folder>`.
+Checked on 2026-11-25 with `python3 tools/check_base_copies.py <each system folder>`.
 
 ## Changes the builders asked for (all done in 1.2.0)
 

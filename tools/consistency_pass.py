@@ -2,7 +2,7 @@
 """Cross repo consistency pass over the hub and the seven system repos.
 
 Checks: dash characters in shipped text, local paths, private links, mentions of private design material,
-relative Markdown links, and base version agreement. Prints findings grouped by repo and kind.
+relative Markdown links, the CI workflow matching tools/make_ci.py, and base version agreement. Prints findings grouped by repo and kind.
 Usage: python3 tools/consistency_pass.py [--root <folder with all repos>] [--show 5]
 Exit code 1 when anything is found outside the allowed list below.
 """
@@ -17,6 +17,7 @@ from collections import defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import make_ci  # noqa: E402
 import system_names  # noqa: E402
 
 
@@ -68,6 +69,10 @@ def scan(repo: Path):
                     continue
                 if not (p.parent / unquote(target)).exists():
                     found["broken link"].append(f"{rel} -> {target}")
+    if (repo / "apps" / "api").is_dir():  # a system repo, not the hub
+        ci = repo / ".github" / "workflows" / "ci.yml"
+        if not ci.is_file() or ci.read_text() != make_ci.render(repo):
+            found["ci workflow differs from tools/make_ci.py"].append(".github/workflows/ci.yml")
     return found
 
 
